@@ -1,3 +1,5 @@
+#made by: Sally Burkley
+#current version from: 12/2/2020
 import tkinter
 from tkinter import *
 import time
@@ -167,6 +169,7 @@ class GerryMander(Frame):
             total_red = topOfDrawnto_botOfRed + bottomOfDrawnto_botOfBlue
             total_area = coords1[0] * coords1[1]
             total_blue = total_area - total_red
+            total_red = abs(total_red)
             #print("red: " + str(total_red))
             #print("blue: " + str(total_blue))
 
@@ -194,7 +197,7 @@ class GerryMander(Frame):
             topOfDrawn = coords1[1] - 80
             bottomOfDrawn = coords1[3] - 80
             total = topOfDrawn + bottomOfDrawn
-            print(total)
+            #print(total)
 
             if total > 0:
                 #print("majority blue")
@@ -222,7 +225,7 @@ class GerryMander(Frame):
             side1OfDrawn = coords1[0] - 200
             side2OfDrawn = coords1[2] - 200
             total = side1OfDrawn + side2OfDrawn
-            print(total)
+            #print(total)
 
             if total < 0:
                 #print("majority blue")
