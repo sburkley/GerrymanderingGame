@@ -175,7 +175,7 @@ class GerryMander(Frame):
               countR.set(countR.get() + 1)
             else:
               #print("majority blue")
-              countR.set(countB.get() + 1)
+              countB.set(countB.get() + 1)
               
         #if it is in blue1 and red1
         elif len(result_blue1) > length_blue1.get() and len(result_red1) > length_red1.get():
