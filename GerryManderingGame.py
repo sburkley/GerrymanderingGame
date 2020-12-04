@@ -1,5 +1,5 @@
 #made by: Sally Burkley
-#current version from: 12/2/2020
+#current version from: 12/4/2020
 import tkinter
 from tkinter import *
 import time
@@ -325,21 +325,21 @@ class GerryMander(Frame):
         print("blue is currently: " + str(countB.get()))
 
         #if the district count is 5
-        if count.get() == 5:
-            self.canvas.delete(self.numPrint)
+        #if count.get() == 5:
+            #self.canvas.delete(self.numPrint)
 
-            if countR.get() > countB.get():
-                final = "you made red win!"
+            #if countR.get() > countB.get():
+                #final = "you made red win!"
 
-            elif countR.get() < countB.get():
-                final = "you made blue win!"
+            #elif countR.get() < countB.get():
+                #final = "you made blue win!"
             
-            else:
-                final = "you made it a draw!"
+            #else:
+                #final = "you made it a draw!"
                 
-            self.redPrint = self.canvas.create_text(60,10,fill="white", font="Times 16 bold", text = ("Red: " + str(countR.get())))
-            self.bluePrint = self.canvas.create_text(60,30,fill="white", font="Times 16 bold", text = ("Blue: " + str(countB.get())))
-            self.winPrint = self.canvas.create_text(110,50,fill="white", font="Times 16 bold", text = final)
+            #self.redPrint = self.canvas.create_text(60,10,fill="white", font="Times 16 bold", text = ("Red: " + str(countR.get())))
+            #self.bluePrint = self.canvas.create_text(60,30,fill="white", font="Times 16 bold", text = ("Blue: " + str(countB.get())))
+            #self.winPrint = self.canvas.create_text(110,50,fill="white", font="Times 16 bold", text = final)
 
         pass
 
@@ -350,6 +350,22 @@ class GerryMander(Frame):
         self.canvas.delete("all")
         self.__init__(None)
 
+    def finish(self):
+        self.canvas.delete(self.numPrint)
+
+        if countR.get() > countB.get():
+            final = "you made red win!"
+
+        elif countR.get() < countB.get():
+            final = "you made blue win!"
+            
+        else:
+            final = "you made it a draw!"
+                
+        self.redPrint = self.canvas.create_text(60,10,fill="white", font="Times 16 bold", text = ("Red: " + str(countR.get())))
+        self.bluePrint = self.canvas.create_text(60,30,fill="white", font="Times 16 bold", text = ("Blue: " + str(countB.get())))
+        self.winPrint = self.canvas.create_text(110,50,fill="white", font="Times 16 bold", text = final)
+
 
 
 #running the game              
@@ -359,15 +375,23 @@ if __name__ == "__main__":
     def redo():
         time.sleep(0.8)
         map1.refresh()
+    def done():
+        map1.finish()
 
     root.title("Gerrymandering Game")
-    instruct = Label(root, text = "draw 5 districts for the area and try to make one color win!")
+    instruct = Label(root, text = "draw some districts for the area and try to make one color win!")
     instruct.grid(row=4, column=0, columnspan=2)
+
+    instruct3 = Label(root, text = "press 'done!' when you're done. Click refresh to clear the board.")
+    instruct3.grid(row=5, column=0, columnspan=2)
     
     endButton = Button(root, text="refresh", command=redo)
-    endButton.grid(row=6, column=0, columnspan=2)
+    endButton.grid(row=7, column=0, columnspan=2)
+
+    finButton = Button(root, text="done!", command=done)
+    finButton.grid(row=6, column=0, columnspan=2)
  
-    instruct2 = Label(root, text = "Look at your squares, how many are mostly blue verses red?")
+    instruct2 = Label(root, text = "Look at your squares, how did you make one side win?")
     instruct2.grid(row=8, column=0, columnspan=2)
 
 
